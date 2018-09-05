@@ -1,65 +1,50 @@
 <template>
-  <section class="container">
-    <div>
-      <app-logo/>
-      <h1 class="title">
-        elevator_avto_acceptance
-      </h1>
-      <h2 class="subtitle">
-        Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
+    <div id="SignUp">    
+      <div id="signCont">
+        <!-- <input v-model="login" placeholder="Enter your login"> -->
+        <el-input
+          placeholder="Please input login"
+          v-model="login"
+          clearable>
+        </el-input>
+        <el-input
+          placeholder="Please input pass"
+          v-model="pass"
+          clearable>
+        </el-input>
+        <!-- <input v-model="pass" placeholder="Enter your password"> -->
+        <button v-on:click="signUp"> Let me in. </button>
       </div>
-    </div>
-  </section>
+  </div> 
 </template>
 
 <script>
-import AppLogo from '~/components/AppLogo.vue'
+// import LoginForm from '~/components/LoginForm.vue'
 
 export default {
-  components: {
-    AppLogo
-  }
-}
+    data() { 
+      return {
+        login: '',
+        pass: ''
+      }
+    },
+    methods: {
+      signUp: function (){
+        localStorage.setItem('login', this.login);
+        localStorage.setItem('pass', this.pass);
+          if(this.login=='user' && this.pass=='user'){
+            this.$router.push('/registrations');
+          } else if(this.login=='' || this.pass==''){
+            alert('You not enter login or password');
+          } else {
+            alert('You entered wrong login or password');
+          }
+      }
+    }
+} 
 </script>
 
 <style>
-.container {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
 
-.title {
-  font-family: "Quicksand", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; /* 1 */
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
 </style>
 
