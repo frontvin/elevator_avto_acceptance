@@ -1,7 +1,7 @@
 <template>
     <div id='someid'>
-    <navigation/>
-    <h1>Registration page</h1>
+        <navigation/>
+        <h1>Registration page</h1>
     </div>
 </template>
 
@@ -11,8 +11,6 @@ export default {
     components:{
         Navigation
     }
-    
 }
-
 </script>
 
