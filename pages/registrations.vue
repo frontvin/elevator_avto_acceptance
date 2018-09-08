@@ -1,13 +1,13 @@
 <template>
-    <div id='someid'>
-        <navigation/>
-        <h1>Registration page</h1>
-    </div>
+    <el-row>
+        <el-button type="primary">Primary</el-button>
+    </el-row>
 </template>
 
 <script>
 import Navigation from '~/components/Navigation.vue'
 export default {
+    layout: 'main',
     components:{
         Navigation
     }
