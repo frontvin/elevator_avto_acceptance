@@ -1,16 +1,14 @@
 <template>
-    <el-row>
-        <el-button type="primary">Primary</el-button>
-    </el-row>
+    <newRegistration/>
 </template>
 
 <script>
-import Navigation from '~/components/Navigation.vue'
+import NewRegistration from '~/components/NewRegistration.vue'
 export default {
-    layout: 'main',
-    components:{
-        Navigation
-    }
+  components:{
+      NewRegistration
+  },
+  layout: 'main'
 }
 </script>
 
