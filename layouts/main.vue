@@ -1,6 +1,12 @@
 <template>
-    <div>
-        <el-menu class="el-menu" mode="horizontal" background-color="#545c64" text-color="#fff" active-text-color="#ffd04b">
+    <el-header width="100%">
+        <el-menu 
+            :default-active="activeIndex1"
+            mode="horizontal" 
+            class="el-menu" 
+            background-color="#545c64" 
+            text-color="#fff" 
+            active-text-color="#ffd04b">
             <el-menu-item index="1">
                 <nuxt-link class="navLink" to="/registrations">Реєстрація</nuxt-link>
             </el-menu-item>
@@ -14,23 +20,45 @@
                 <nuxt-link class="navLink" to="/">Вийти</nuxt-link>
             </el-menu-item>
         </el-menu>
-        <nuxt/>
-    </div>
+        <el-main>
+            <nuxt/>
+        </el-main>
+    </el-header>
 </template>
 
 <script>
-
-export default {
-
-}
+  export default {
+    data() {
+      return {
+        activeIndex1: '1'
+      };
+    }
+  }
 </script>
 
-<style>
-  @import '~/assets/normalize.css';
-  @import url("//unpkg.com/element-ui@2.4.6/lib/theme-chalk/index.css");
-  .navLink{
-    font-size: 1.2em;
-    text-decoration: none;
-  }
+<style lang=scss>
+@import '~/assets/normalize.css';
+@import url("//unpkg.com/element-ui@2.4.6/lib/theme-chalk/index.css");
+.el-header{
+    background-color: rgb(84, 92, 100);
+}
+.el-menu{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;   
+    .el-menu-item{
+        padding: 0;
+        &:last-child{
+            margin-left: auto;
+        }
+        .navLink{
+            font-size: 1.2em;
+            text-decoration: none;
+            padding: 20px 20px;
+        }
+    }
+}
+
 </style>
 
