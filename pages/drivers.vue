@@ -1,11 +1,15 @@
 <template>
     <div>
-        <h1>Drivers page</h1>
+        <driversList />
     </div>
 </template>
 <script>
+import DriversList from '~/components/DriversList';
 export default {
-    layout: 'main'
+    layout: 'main',
+    components: {
+        DriversList
+    }
 }
 </script>
 <style lang="scss">

@@ -115,21 +115,21 @@ export default {
             }
         }
     },
-            methods: {
-                submitForm(form) {
-                    this.$refs[form].validate((valid) => {
-                    if (valid) {
-                        // need to write data to local storage
-                        alert('submit!');
-                    } else {
-                        console.log('error submit!!');
-                        return false;
-                    }
-                    });
-                },
-                resetForm(form) {
-                    this.$refs[form].resetFields();
+    methods: {
+        submitForm(form) {
+            this.$refs[form].validate((valid) => {
+            if (valid) {
+            // need to write data to local storage
+            alert('submit!');
+            } else {
+                console.log('error submit!!');
+                return false;
                 }
-            }
+            });
+        },
+        resetForm(form) {
+            this.$refs[form].resetFields();
+        }
+    }
 }
 </script>
