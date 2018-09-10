@@ -1,5 +1,6 @@
 <template>
     <el-row>
+        <h1>Список реєстрацій</h1>
         <el-table
             ref="singleTable"
             :data="tableData"
@@ -48,7 +49,9 @@
                     <el-button
                         size="mini"
                         type="danger"
-                        @click="handleDelete(scope.$index, scope.row)">Видалити</el-button>
+                        icon="el-icon-delete"
+                        round
+                        @click="handleDelete(scope.$index, scope.row)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -60,7 +63,22 @@ export default {
     data(){
         return {
             tableData: [
-                
+                {
+                    drivername: 'Іван',
+                    driversurname: 'Іванов',
+                    carnumber: 'АВ5084ВІ',
+                    regdate: '2016-05-02',
+                    cargo: 'Пшениця',
+                    weight: 8500
+                }, 
+                {
+                    drivername: 'Петро',
+                    driversurname: 'Петров',
+                    carnumber: 'АВ7584ВІ',
+                    regdate: '2016-06-02',
+                    cargo: 'Пшениця',
+                    weight: 10000
+                }
             ],
             currentRow: null
         }

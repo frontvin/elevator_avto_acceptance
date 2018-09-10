@@ -1,5 +1,6 @@
 <template>
     <el-row>
+        <h1>Список автомобілів</h1>
         <el-table
             ref="singleTable"
             :data="tableData"
