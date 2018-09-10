@@ -135,7 +135,5 @@ export default {
 </script>
 
 <style lang="scss">
-    .el-form-item{
-        background-color: #145275;
-    }
+    
 </style>
