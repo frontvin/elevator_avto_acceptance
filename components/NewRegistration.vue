@@ -7,54 +7,56 @@
 
         <el-dialog title="Нова реєстарція" :visible.sync="dialogFormVisible">
         
-        <el-form :model="form" :rules="rules" ref="form">
-            <!-- Дані водія -->
-            <el-form-item label="Ім'я" prop="drivername" :label-width="formLabelWidth">
-                <el-input v-model="form.drivername" auto-complete="off" clearable></el-input>
-            </el-form-item>
-            <el-form-item label="Прізвище" prop="driversurname" :label-width="formLabelWidth">
-                <el-input v-model="form.driversurname" auto-complete="off" clearable></el-input>
-            </el-form-item>
-            <el-form-item label="Сертифікат водія" prop="sertificate" :label-width="formLabelWidth">
-                <el-input v-model="form.sertificate" auto-complete="off" clearable></el-input>
-            </el-form-item>
+            <el-form :model="form" :rules="rules" ref="form">
+                <!-- Дані водія -->
+                <el-form-item label="Ім'я" prop="drivername" :label-width="formLabelWidth">
+                    <el-input v-model="form.drivername" auto-complete="off" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="Прізвище" prop="driversurname" :label-width="formLabelWidth">
+                    <el-input v-model="form.driversurname" auto-complete="off" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="Сертифікат водія" prop="sertificate" :label-width="formLabelWidth">
+                    <el-input v-model="form.sertificate" auto-complete="off" clearable></el-input>
+                </el-form-item>
+                
+                <!-- Дані автомобіля -->
+                <el-form-item label="Марка автомобіля" prop="carbrand" :label-width="formLabelWidth">
+                    <el-input v-model="form.carbrand" auto-complete="off" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="Модель автомобіля" prop="carmodel" :label-width="formLabelWidth">
+                    <el-input v-model="form.carmodel" auto-complete="off" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="Номер автомобіля" prop="carnumber" :label-width="formLabelWidth">
+                    <el-input v-model="form.carnumber" auto-complete="off" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="Колір автомобіля" prop="carcolor" :label-width="formLabelWidth">
+                    <el-input v-model="form.carcolor" auto-complete="off" clearable></el-input>
+                </el-form-item>
+                
+                <!-- Дані вантажу та дати реєстрації -->
+                <el-form-item label="Дата реєстрації" prop="regdate" :label-width="formLabelWidth">
+                    <el-date-picker 
+                        type="date"
+                        placeholder="Виберіть дату"
+                        style="width:100%" 
+                        v-model="form.regdate" 
+                        auto-complete="off">
+                    </el-date-picker>
+                </el-form-item>
+                <el-form-item label="Вантаж" prop="cargo" :label-width="formLabelWidth">
+                    <el-input v-model="form.cargo" auto-complete="off" clearable></el-input>
+                </el-form-item>
+                <el-form-item label="Вага" prop="weight" :label-width="formLabelWidth">
+                    <el-input-number v-model="form.weight" auto-complete="off" clearable></el-input-number>
+                </el-form-item>
+            </el-form>
+
+            <span slot="footer" class="dialog-footer">
+                <el-button @click="dialogFormVisible = false">Закрити</el-button>
+                <el-button @click="resetForm('form')">Reset</el-button>
+                <el-button type="primary" @click="submitForm('form')">Зареєструвати</el-button>
+            </span>
             
-            <!-- Дані автомобіля -->
-            <el-form-item label="Марка автомобіля" prop="carbrand" :label-width="formLabelWidth">
-                <el-input v-model="form.carbrand" auto-complete="off" clearable></el-input>
-            </el-form-item>
-            <el-form-item label="Модель автомобіля" prop="carmodel" :label-width="formLabelWidth">
-                <el-input v-model="form.carmodel" auto-complete="off" clearable></el-input>
-            </el-form-item>
-            <el-form-item label="Номер автомобіля" prop="carnumber" :label-width="formLabelWidth">
-                <el-input v-model="form.carnumber" auto-complete="off" clearable></el-input>
-            </el-form-item>
-            <el-form-item label="Колір автомобіля" prop="carcolor" :label-width="formLabelWidth">
-                <el-input v-model="form.carcolor" auto-complete="off" clearable></el-input>
-            </el-form-item>
-            
-            <!-- Дані вантажу та дати реєстрації -->
-            <el-form-item label="Дата реєстрації" prop="regdate" :label-width="formLabelWidth">
-                <el-date-picker 
-                    type="date"
-                    placeholder="Виберіть дату"
-                    style="width:100%" 
-                    v-model="form.regdate" 
-                    auto-complete="off">
-                </el-date-picker>
-            </el-form-item>
-            <el-form-item label="Вантаж" prop="cargo" :label-width="formLabelWidth">
-                <el-input v-model="form.cargo" auto-complete="off" clearable></el-input>
-            </el-form-item>
-            <el-form-item label="Вага" prop="weight" :label-width="formLabelWidth">
-                <el-input-number v-model="form.weight" auto-complete="off" clearable></el-input-number>
-            </el-form-item>
-        </el-form>
-        <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogFormVisible = false">Закрити</el-button>
-            <el-button @click="resetForm('form')">Reset</el-button>
-            <el-button type="primary" @click="submitForm('form')">Зареєструвати</el-button>
-        </span>
         </el-dialog>
     </el-row>
 </template>
@@ -74,11 +76,7 @@ export default {
                 carcolor: '',
                 regdate: '',
                 cargo: '',
-                weight: '',
-                delivery: false,
-                type: [],
-                resource: '',
-                desc: ''
+                weight: ''  
             },
             formLabelWidth: '140px',
             rules: {
