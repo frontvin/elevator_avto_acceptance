@@ -53,7 +53,7 @@
 
             <span slot="footer" class="dialog-footer">
                 <el-button @click="dialogFormVisible = false">Закрити</el-button>
-                <el-button @click="resetForm('form')">Reset</el-button>
+                <el-button @click="resetForm('form')">Очистити</el-button>
                 <el-button type="primary" @click="submitForm('form')">Зареєструвати</el-button>
             </span>
             
@@ -62,6 +62,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
+
 export default {
     data() {
         return {
