@@ -1,7 +1,7 @@
 const registersStore = {
   // initial state
   state: {
-    form: {
+    newRegistration: {
       drivername: '',
       driversurname: '',
       sertificate: '',
@@ -12,7 +12,8 @@ const registersStore = {
       regdate: '',
       cargo: '',
       weight: ''  
-    }
+    },
+    registrations: []
   },
 
   // mutations
