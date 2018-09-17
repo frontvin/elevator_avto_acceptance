@@ -3,7 +3,6 @@
         <h1>Список реєстрацій</h1>
         <el-table
             ref="singleTable"
-            :data="tableData"
             stripe
             border
             height="500"
@@ -18,27 +17,33 @@
                 property="drivername"
                 label="Ім'я"
                 width="120">
+                {{ registrations.drivername }}
             </el-table-column>
             <el-table-column
                 property="driversurname"
                 label="Прізвище"
                 width="120">
+                {{registrations.driversurname}}
             </el-table-column>
             <el-table-column
                 property="carnumber"
                 label="Номер автомобіля">
+                {{registrations.carnumber}}
             </el-table-column>
             <el-table-column
                 property="regdate"
                 label="Дата реєстрації">
+                {{registrations.regdate}}
             </el-table-column>
             <el-table-column
                 property="cargo"
                 label="Вантаж">
+                {{registrations.cargo}}
             </el-table-column>
             <el-table-column
                 property="weight"
                 label="Вага">
+                {{registrations.weight}}
             </el-table-column>
             <el-table-column
                 label="Операції">
@@ -62,26 +67,12 @@
 export default {
     data(){
         return {
-            tableData: [
-                {
-                    // just for test
-                    drivername: 'Іван',
-                    driversurname: 'Іванов',
-                    carnumber: 'АВ5084ВІ',
-                    regdate: '2016-05-02',
-                    cargo: 'Пшениця',
-                    weight: 8500
-                }, 
-                {
-                    drivername: 'Петро',
-                    driversurname: 'Петров',
-                    carnumber: 'АВ7584ВІ',
-                    regdate: '2016-06-02',
-                    cargo: 'Пшениця',
-                    weight: 10000
-                }
-            ],
             currentRow: null
+        }
+    },
+    computed: {
+        registrations(){
+            return this.$store.state.registrations;
         }
     },
     methods: {
