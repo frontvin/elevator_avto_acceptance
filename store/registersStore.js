@@ -1,5 +1,5 @@
 export const state = () => ({
-    regInfo: [
+    regInfo: 
       {
         drivername: '',
         driversurname: '',
@@ -11,7 +11,6 @@ export const state = () => ({
         regdate: '',
         cargo: '',
         weight: ''  
-      }
-    ],
+      },
     registrations: []
   })
