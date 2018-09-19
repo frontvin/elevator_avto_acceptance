@@ -61,7 +61,6 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
 
 export default {
     data() {
@@ -71,39 +70,88 @@ export default {
         }
     },
     computed: {
-        ...mapState('registersStore', [ 'drivername',
-                                        'driversurname',
-                                        'sertificate',
-                                        'carbrand',
-                                        'carmodel',
-                                        'carnumber',
-                                        'carcolor',
-                                        'regdate',
-                                        'cargo',
-                                        'weight'  
-                                    ])         
-    },
-    methods: {
-        submitForm() {
-            
-            // need to write data to local storage
-            this.registrations.push({
-                                drivername: this.drivername,
-                                driversurname: this.driversurname,
-                                sertificate: this.sertificate,
-                                carbrand: this.carbrand,
-                                carmodel: this.carmodel,
-                                carnumber: this.carnumber,
-                                carcolor: this.carcolor,
-                                regdate: this.regdate,
-                                cargo: this.cargo,
-                                weight: this.weight
-            })
+        drivername: {
+            get () {
+                return this.$store.state.drivername
+            },
+            set (drivername) {
+                this.$store.commit('registersStore/SET_DRIVERNAME', drivername)
+            }
         },
-        resetForm(formName) {
-            this.$refs[formName].resetFields();
-        }
-    }
+        driversurname: {
+            get () {
+                return this.$store.state.driversurname
+            },
+            set (driversurname) {
+                this.$store.commit('registersStore/SET_DRIVERSURNAME', driversurname)
+            }
+        },
+        sertificate: {
+            get () {
+                return this.$store.state.sertificate
+            },
+            set (sertificate) {
+                this.$store.commit('registersStore/SET_SERTIFICATE', sertificate)
+            }
+        },
+        carbrand: {
+            get () {
+                return this.$store.state.carbrand
+            },
+            set (carbrand) {
+                this.$store.commit('registersStore/SET_CARBRAND', carbrand)
+            }
+        },
+        carmodel: {
+            get () {
+                return this.$store.state.carmodel
+            },
+            set (carmodel) {
+                this.$store.commit('registersStore/SET_CARMODEL', carmodel)
+            }
+        },
+        carnumber: {
+            get () {
+                return this.$store.state.carnumber
+            },
+            set (carnumber) {
+                this.$store.commit('registersStore/SET_CARNUMBER', carnumber)
+            }
+        },
+        carcolor: {
+            get () {
+                return this.$store.state.carcolor
+            },
+            set (carcolor) {
+                this.$store.commit('registersStore/SET_CARCOLOR', carcolor)
+            }
+        },
+        regdate: {
+            get () {
+                return this.$store.state.regdate
+            },
+            set (regdate) {
+                this.$store.commit('registersStore/SET_REGDATE', regdate)
+            }
+        },
+        cargo: {
+            get () {
+                return this.$store.state.cargo
+            },
+            set (cargo) {
+                this.$store.commit('registersStore/SET_CARGO', cargo)
+            }
+        },
+        weight: {
+            get () {
+                return this.$store.state.weight
+            },
+            set (weight) {
+                this.$store.commit('registersStore/SET_WEIGHT', weight)
+            }
+        },
+    },
+
 }
 </script>
 
