@@ -10,7 +10,7 @@ export const state = () => ({
         carcolor: '',
         regdate: '',
         cargo: '',
-        weight: ''  
+        weight: null  
       },
     registrations: []
   })
@@ -45,5 +45,10 @@ export const mutations = {
   },
   SET_WEIGHT(state, weight){
     state.regInfo.weight = weight
+  },
+  ADDNEW(state, regInfo){
+    state.registrations.push({
+      regInfo: regInfo
+    })
   }
 }

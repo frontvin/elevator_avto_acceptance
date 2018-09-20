@@ -45,8 +45,8 @@
                 <el-form-item label="Вантаж" :label-width="formLabelWidth">
                     <el-input v-model="cargo" auto-complete="off" clearable></el-input>
                 </el-form-item>
-                <el-form-item label="Вага" :label-width="formLabelWidth">
-                    <el-input-number v-model="weight" auto-complete="off" clearable></el-input-number>
+                <el-form-item label="Вага" :label-width="formLabelWidth" prop='weight'>
+                    <el-input-number v-model="weight" @change="handleChange" auto-complete="off" clearable></el-input-number>
                 </el-form-item>
             </el-form>
 
@@ -151,6 +151,28 @@ export default {
             }
         },
     },
+    methods: {
+        handleChange(value) {
+            console.log(value)
+        },
+        submitForm() {
+            
+            // need to write data to local storage
+            this.$store.state.regInfo.registrations.push({
+                                drivername: this.drivername,
+                                driversurname: this.driversurname,
+                                sertificate: this.sertificate,
+                                carbrand: this.carbrand,
+                                carmodel: this.carmodel,
+                                carnumber: this.carnumber,
+                                carcolor: this.carcolor,
+                                regdate: this.regdate,
+                                cargo: this.cargo,
+                                weight: this.weight
+            })
+            console.log(registrations);
+        },
+    }
 
 }
 </script>
