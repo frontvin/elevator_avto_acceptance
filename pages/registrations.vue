@@ -1,19 +1,22 @@
 <template>
-    <el-row>
+    <div>
+        <el-row>
+            <RegList/>
+        </el-row>
         <newRegistration/>
-        <!-- <regList/> -->
-    </el-row>
+    </div>
 </template>
 
 <script>
 import NewRegistration from '~/components/NewRegistration.vue'
-// import RegList from '~/components/RegList.vue'
+import RegList from '~/components/RegList.vue'
 
 export default {
   components:{
-      NewRegistration
-    //   RegList
+      NewRegistration,
+      RegList
   },
+
   layout: 'main'
 }
 </script>

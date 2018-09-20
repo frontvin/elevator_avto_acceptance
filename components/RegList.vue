@@ -5,45 +5,36 @@
             ref="singleTable"
             stripe
             border
+            :data='registrations'
             height="500"
             highlight-current-row
             @current-change="handleCurrentChange"
             style="width: 100%">
             <el-table-column
-                type="index"
-                width="50">
-            </el-table-column>
-            <el-table-column
-                property="drivername"
+                property="driverName"
                 label="Ім'я"
                 width="120">
-                {{ registrations.drivername }}
             </el-table-column>
             <el-table-column
-                property="driversurname"
+                property="driverSurname"
                 label="Прізвище"
                 width="120">
-                {{registrations.driversurname}}
             </el-table-column>
             <el-table-column
-                property="carnumber"
+                property="carNumber"
                 label="Номер автомобіля">
-                {{registrations.carnumber}}
             </el-table-column>
             <el-table-column
-                property="regdate"
+                property="regDate"
                 label="Дата реєстрації">
-                {{registrations.regdate}}
             </el-table-column>
             <el-table-column
                 property="cargo"
                 label="Вантаж">
-                {{registrations.cargo}}
             </el-table-column>
             <el-table-column
                 property="weight"
                 label="Вага">
-                {{registrations.weight}}
             </el-table-column>
             <el-table-column
                 label="Операції">
@@ -72,7 +63,7 @@ export default {
     },
     computed: {
         registrations(){
-            return this.$store.state.registrations;
+            return this.$store.state.registers.list;
         }
     },
     methods: {

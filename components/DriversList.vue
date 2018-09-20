@@ -1,26 +1,27 @@
 <template>
     <el-row>
-        <h1>Список водіїв</h1>
+        <h1>Список водіїв <span class='DriversList__counter'>{{counter}}</span></h1>
         <el-table
             ref="singleTable"
-            :data="tableData"
+            :data="drivers"
             stripe
             border
             highlight-current-row
             @current-change="handleCurrentChange"
             style="width: 100%">
             <el-table-column
-                type="index"
-                width="50">
-            </el-table-column>
-            <el-table-column
-                property="drivername"
+                prop="name"
                 label="Ім'я"
                 width="240">
             </el-table-column>
             <el-table-column
-                property="driversurname"
+                prop="surname"
                 label="Прізвище"
+                width="240">
+            </el-table-column>
+            <el-table-column
+                prop="sertificate"
+                label="Сертифікат"
                 width="240">
             </el-table-column>
             <el-table-column
@@ -41,12 +42,19 @@
 
 <script>
 export default {
+    name: 'e-drivers-list',
+
     data(){
         return {
-            tableData: [
-                
-            ],
             currentRow: null
+        }
+    },
+    computed: {
+        drivers(){
+            return this.$store.state.drivers.list;
+        },
+        counter(){
+            return this.$store.state.drivers.count;
         }
     },
     methods: {
@@ -59,3 +67,10 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+    .DriversList__counter{
+        font-size: 12px;
+        color: grey;
+    }
+</style>

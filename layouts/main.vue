@@ -1,29 +1,36 @@
 <template>
-    <el-header width="100%">
-        <el-menu 
-            :default-active="activeIndex1"
-            mode="horizontal" 
-            class="el-menu" 
-            background-color="#545c64" 
-            text-color="#fff" 
-            active-text-color="#ffd04b">
-            <el-menu-item index="1">
-                <nuxt-link class="navLink" to="/registrations">Реєстрація</nuxt-link>
-            </el-menu-item>
-            <el-menu-item index="2">
-                <nuxt-link class="navLink" to="/drivers">Водії</nuxt-link>
-            </el-menu-item>
-            <el-menu-item index="3">
-                <nuxt-link class="navLink" to="/cars">Автомобілі</nuxt-link>
-            </el-menu-item>
-            <el-menu-item index="4">
-                <nuxt-link class="navLink" to="/">Вийти</nuxt-link>
-            </el-menu-item>
-        </el-menu>
+    <div>
+        <el-header width="100%">
+            <el-menu 
+                :default-active="activeIndex1"
+                mode="horizontal" 
+                class="el-menu" 
+                background-color="#545c64" 
+                text-color="#fff" 
+                active-text-color="#ffd04b">
+                <el-menu-item index="1">
+                    <nuxt-link class="navLink" to="/registrations">Реєстрація</nuxt-link>
+                </el-menu-item>
+                <el-menu-item index="2">
+                    <nuxt-link class="navLink" to="/drivers">Водії</nuxt-link>
+                </el-menu-item>
+                <el-menu-item index="3">
+                    <nuxt-link class="navLink" to="/cars">Автомобілі</nuxt-link>
+                </el-menu-item>
+                <el-menu-item index="4">
+                    <span class="navLink" to="/" @click='showRegistrationForm'>Нова реєстрація</span>
+                </el-menu-item>
+                <el-menu-item index="5">
+                    <nuxt-link class="navLink" to="/">Вийти</nuxt-link>
+                </el-menu-item>
+                
+            </el-menu>
+            
+        </el-header>
         <el-main>
             <nuxt/>
         </el-main>
-    </el-header>
+    </div>
 </template>
 
 <script>
@@ -32,6 +39,11 @@
       return {
         activeIndex1: '1'
       };
+    },
+    methods: {
+        showRegistrationForm(){
+            this.$store.commit('registers/SET_REGISTRATION_FORM_VISIBLE', true)
+        }
     }
   }
 </script>
