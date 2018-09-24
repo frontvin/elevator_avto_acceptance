@@ -23,9 +23,7 @@
                 <el-menu-item index="5">
                     <nuxt-link class="navLink" to="/">Вийти</nuxt-link>
                 </el-menu-item>
-                
             </el-menu>
-            
         </el-header>
         <el-main>
             <nuxt/>

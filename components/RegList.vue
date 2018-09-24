@@ -6,7 +6,7 @@
             stripe
             border
             :data='registrations'
-            height="500"
+            height="480"
             highlight-current-row
             @current-change="handleCurrentChange"
             style="width: 100%">

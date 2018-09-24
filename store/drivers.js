@@ -16,7 +16,8 @@ export const actions = {
   addNew({
     commit,
     state
-  }, driver) {
+  }, 
+  driver) {
     commit('ADD_DRIVER', driver)
     commit('SET_COUNT', state.list.length)
   }
