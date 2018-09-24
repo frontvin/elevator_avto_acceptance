@@ -18,7 +18,7 @@
                     <nuxt-link class="navLink" to="/cars">Автомобілі</nuxt-link>
                 </el-menu-item>
                 <el-menu-item index="4">
-                    <span class="navLink" to="/" @click='showRegistrationForm'>Нова реєстрація</span>
+                    <span class="navLink" @click='showRegistrationForm'><i class='el-icon-plus'></i> Нова реєстрація</span>
                 </el-menu-item>
                 <el-menu-item index="5">
                     <nuxt-link class="navLink" to="/">Вийти</nuxt-link>

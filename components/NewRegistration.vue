@@ -6,7 +6,7 @@
 
         <el-dialog title="Нова реєстарція" :visible="formVisisble">
         
-            <el-form v-model="form">
+            <el-form v-model="form" :before-close="close">
                 <!-- Дані водія -->
                 <el-form-item label="Ім'я" :label-width="formLabelWidth">
                     <el-input v-model="form.driverName" auto-complete="off" clearable></el-input>
@@ -96,8 +96,14 @@ export default {
                 sertificate: this.form.sertificate
             })
         },
-        close(){
-            this.$store.commit('registers/SET_REGISTRATION_FORM_VISIBLE', false)
+        close(done){
+            this.$confirm('Ви дійсно хочете закрити форму реєстрації?')
+                .then(_ => {
+                    done(
+                        this.$store.commit('registers/SET_REGISTRATION_FORM_VISIBLE', false)
+                    )
+                })
+                .catch(_ => {});            
         }
     },
     computed: {
