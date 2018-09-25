@@ -1,6 +1,7 @@
 <template>
     <el-row>
         <h1>Список реєстрацій</h1>
+        <p class='DriversList__counter'>Всього реєстрацій: {{counter}}</p>
         <el-table
             ref="singleTable"
             stripe
@@ -25,7 +26,7 @@
                 label="Номер автомобіля">
             </el-table-column>
             <el-table-column
-                prop="regDate"
+                prop="date"
                 label="Дата реєстрації">
             </el-table-column>
             <el-table-column
@@ -64,6 +65,9 @@ export default {
     computed: {
         registrations(){
             return this.$store.state.registers.list;
+        },
+        counter(){
+            return this.$store.state.drivers.count;
         }
     },
     methods: {

@@ -1,6 +1,7 @@
 <template>
     <el-row>
         <h1>Список автомобілів</h1>
+        <p class='DriversList__counter'>Всього автомобілів: {{counter}}</p>
         <el-table
             ref="singleTable"
             :data="cars"
@@ -33,7 +34,8 @@
                     <el-button
                         size="mini"
                         type="danger"
-                        @click="handleDelete(scope.$index, scope.row)">Видалити</el-button>
+                        icon="el-icon-delete"
+                        @click="handleDelete(scope.$index, scope.row)"></el-button>
                 </template>
             </el-table-column>
         </el-table>

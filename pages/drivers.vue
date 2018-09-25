@@ -6,6 +6,7 @@
         <newRegistration />
     </div>
 </template>
+
 <script>
 import NewRegistration from '~/components/NewRegistration.vue'
 import DriversList from '~/components/DriversList';

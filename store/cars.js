@@ -13,11 +13,11 @@ export const mutations = {
 }
 
 export const actions = {
-addNew({
-  commit,
-  state
-}, car) {
-  commit('ADD_CAR', car)
-  commit('SET_COUNT', state.list.length)
-}
+  addNew({
+    commit,
+    state
+  }, car) {
+    commit('ADD_CAR', car)
+    commit('SET_COUNT', state.list.length)
+  }
 }

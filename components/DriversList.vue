@@ -1,6 +1,7 @@
 <template>
     <el-row>
-        <h1>Список водіїв <span class='DriversList__counter'>{{counter}}</span></h1>
+        <h1>Список водіїв</h1>
+        <p class='DriversList__counter'>Всього водіїв: {{counter}}</p>
         <el-table
             ref="singleTable"
             :data="drivers"
@@ -69,8 +70,8 @@ export default {
 </script>
 
 <style scoped>
-    .DriversList__counter{
+    /* .DriversList__counter{
         font-size: 12px;
         color: grey;
-    }
+    } */
 </style>
