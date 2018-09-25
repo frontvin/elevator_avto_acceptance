@@ -42,7 +42,7 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
-                        @click="handleView(scope.$index, scope.row)">Переглянути</el-button>
+                        @click="dialogTableVisible = true">Переглянути</el-button>
                     <el-button
                         size="mini"
                         type="danger"
@@ -52,6 +52,21 @@
                 </template>
             </el-table-column>
         </el-table>
+
+        <el-dialog title="Поточна реєстрація" :visible.sync="dialogTableVisible">
+            <el-table :data="registrations">
+                <el-table-column prop="driverName" label="Ім'я"></el-table-column>
+                <el-table-column prop="driverSurname" label="Прізвище"></el-table-column>
+                <el-table-column prop="sertificate" label="Сертифікат"></el-table-column>
+                <el-table-column prop="carBrand" label="Марка автомобіля"></el-table-column>
+                <el-table-column prop="carModel" label="Модель автомобіля"></el-table-column>
+                <el-table-column prop="carNumber" label="Номер автомобіля"></el-table-column>
+                <el-table-column prop="carColor" label="Колір автомобіля"></el-table-column>
+                <el-table-column prop="regDate" label="Дата реєстрації"></el-table-column>
+                <el-table-column prop="cargo" label="Вантаж"></el-table-column>
+                <el-table-column prop="weight" label="Вага"></el-table-column>
+            </el-table>
+        </el-dialog>
     </el-row>
 </template>
 
@@ -59,11 +74,15 @@
 export default {
     data(){
         return {
-            currentRow: null
+            currentRow: null,
+            dialogTableVisible: false
         }
     },
     computed: {
         registrations(){
+            return this.$store.state.registers.list;
+        },
+        currentRegistration(){
             return this.$store.state.registers.list;
         },
         counter(){
