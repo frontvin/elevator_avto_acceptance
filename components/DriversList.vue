@@ -7,6 +7,7 @@
             :data="drivers"
             stripe
             border
+            height="460"
             highlight-current-row
             @current-change="handleCurrentChange"
             style="width: 100%">
@@ -34,7 +35,8 @@
                     <el-button
                         size="mini"
                         type="danger"
-                        @click="handleDelete(scope.$index, scope.row)">Видалити</el-button>
+                        icon="el-icon-delete"
+                        @click="handleDelete(scope.$index, scope.row)"></el-button>
                 </template>
             </el-table-column>
         </el-table>

@@ -4,10 +4,10 @@
         <p class='DriversList__counter'>Всього реєстрацій: {{counter}}</p>
         <el-table
             ref="singleTable"
+            :data='registrations'
             stripe
             border
-            :data='registrations'
-            height="480"
+            height="460"
             highlight-current-row
             @current-change="handleCurrentChange"
             style="width: 100%">
@@ -26,7 +26,7 @@
                 label="Номер автомобіля">
             </el-table-column>
             <el-table-column
-                prop="date"
+                prop="regDate"
                 label="Дата реєстрації">
             </el-table-column>
             <el-table-column
@@ -42,13 +42,13 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
-                        @click="handleEdit(scope.$index, scope.row)">Переглянути</el-button>
+                        @click="handleView(scope.$index, scope.row)">Переглянути</el-button>
                     <el-button
                         size="mini"
                         type="danger"
                         icon="el-icon-delete"
                         round
-                        @click="handleDelete(scope.$index, scope.row)"></el-button>
+                        @click.native.prevent="deleteRow(scope.$index, registrations)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -71,16 +71,15 @@ export default {
         }
     },
     methods: {
-      setCurrent(row) {
-        this.$refs.singleTable.setCurrentRow(row);
-      },
-      handleCurrentChange(val) {
-        this.currentRow = val;
-      }
+        setCurrent(row) {
+            this.$refs.singleTable.setCurrentRow(row);
+        },
+        handleCurrentChange(val) {
+            this.currentRow = val;
+        },
+        handleView(){
+            
+        }
     }
 }
 </script>
-
-<style>
-
-</style>

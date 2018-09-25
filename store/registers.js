@@ -1,8 +1,8 @@
 export const state = () => ({
-    list: [],
-    count: 0,
-    newRegistrationFormVisible: false
-  })
+  list: [],
+  count: 0,
+  newRegistrationFormVisible: false
+})
 
 export const mutations = {
   ADD_REGISTARTION(state, payload) {

@@ -32,18 +32,18 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        activeIndex1: '1'
-      };
-    },
-    methods: {
-        showRegistrationForm(){
-            this.$store.commit('registers/SET_REGISTRATION_FORM_VISIBLE', true)
+    export default {
+        data() {
+            return {
+                activeIndex1: '1'
+            };
+        },
+        methods: {
+            showRegistrationForm(){
+                this.$store.commit('registers/SET_REGISTRATION_FORM_VISIBLE', true)
+            }
         }
     }
-  }
 </script>
 
 <style lang=scss>

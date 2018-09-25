@@ -35,10 +35,10 @@
                 <!-- Дані вантажу та дати реєстрації -->
                 <el-form-item label="Дата реєстрації" prop="regDate" :label-width="formLabelWidth">
                     <el-date-picker 
+                        v-model="form.regDate" 
                         type="date"
                         placeholder="Виберіть дату"
                         style="width:100%" 
-                        v-model="form.regDate" 
                         auto-complete="off">
                     </el-date-picker>
                 </el-form-item>
@@ -78,7 +78,7 @@ export default {
                 carColor: '',
                 cargo: '',
                 weight: 0,
-                regDate: new Date()
+                regDate: new Date() 
 			},
             rules: {
                 driverName: [

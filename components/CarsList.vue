@@ -1,12 +1,13 @@
 <template>
     <el-row>
         <h1>Список автомобілів</h1>
-        <p class='DriversList__counter'>Всього автомобілів: {{counter}}</p>
+        <p>Всього автомобілів: {{counter}}</p>
         <el-table
             ref="singleTable"
             :data="cars"
             stripe
             border
+            height="460"
             highlight-current-row
             @current-change="handleCurrentChange"
             style="width: 100%">
