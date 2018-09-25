@@ -1,11 +1,10 @@
 <template>
     <el-row>
         <h1>Список реєстрацій</h1>
-        <p class='DriversList__counter'>Всього реєстрацій: {{counter}}</p>
+        <p>Всього реєстрацій: {{counter}}</p>
         <el-table
             ref="singleTable"
             :data='registrations'
-            stripe
             border
             height="460"
             highlight-current-row
@@ -53,8 +52,9 @@
             </el-table-column>
         </el-table>
 
+        <!-- Dialog window  -->
         <el-dialog title="Поточна реєстрація" :visible.sync="dialogTableVisible">
-            <el-table :data="registrations">
+            <el-table :data="currentRegistration">
                 <el-table-column prop="driverName" label="Ім'я"></el-table-column>
                 <el-table-column prop="driverSurname" label="Прізвище"></el-table-column>
                 <el-table-column prop="sertificate" label="Сертифікат"></el-table-column>
@@ -86,7 +86,7 @@ export default {
             return this.$store.state.registers.list;
         },
         counter(){
-            return this.$store.state.drivers.count;
+            return this.$store.state.registers.count;
         }
     },
     methods: {
@@ -95,9 +95,6 @@ export default {
         },
         handleCurrentChange(val) {
             this.currentRow = val;
-        },
-        handleView(){
-            
         }
     }
 }
