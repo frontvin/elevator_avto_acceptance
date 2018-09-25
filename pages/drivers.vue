@@ -1,14 +1,19 @@
 <template>
     <div>
-        <driversList />
+        <el-row>
+            <driversList />
+        </el-row>
+        <newRegistration />
     </div>
 </template>
 <script>
+import NewRegistration from '~/components/NewRegistration.vue'
 import DriversList from '~/components/DriversList';
 export default {
     layout: 'main',
     components: {
-        DriversList
+        DriversList,
+        NewRegistration
     }
 }
 </script>

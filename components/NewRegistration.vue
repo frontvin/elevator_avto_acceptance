@@ -6,7 +6,7 @@
 
         <el-dialog title="Нова реєстарція" :visible="formVisisble">
         
-            <el-form v-model="form" :rules="rules" ref="form" :before-close="close">
+            <el-form :model="form" :rules="rules" ref="form" :before-close="close">
                 <!-- Дані водія -->
                 <el-form-item label="Ім'я" prop="driverName" :label-width="formLabelWidth">
                     <el-input v-model="form.driverName" auto-complete="off" clearable></el-input>
@@ -123,38 +123,30 @@ export default {
             if (valid) {
                 // for registrations page
                 this.$store.dispatch('registers/addNew', this.form);
+                
                 // for drivers page
                 this.$store.dispatch('drivers/addNew', {
                     name: this.form.driverName, 
                     surname: this.form.driverSurname, 
                     sertificate: this.form.sertificate
+                });
+                
+                // for cars page
+                this.$store.dispatch('cars/addNew', {
+                    brand: this.form.carBrand,
+                    model: this.form.carModel,
+                    number: this.form.carNumber,
+                    color: this.form.carColor
                 })
             } else {
                 console.log('error submit!!');
                 return false;
-            }
-        });
-      },
-      resetForm(formName) {
-        this.$refs[formName].resetFields();
-      },
-        // submitForm(form) {
-        //     this.$refs[form].validate((valid) => {
-        //     if (valid) {
-        //         // for registrations page
-        //         this.$store.dispatch('registers/addNew', this.form);
-        //         // for drivers page
-        //         this.$store.dispatch('drivers/addNew', {
-        //             name: this.form.driverName, 
-        //             surname: this.form.driverSurname, 
-        //             sertificate: this.form.sertificate
-        //         })
-        //     } else {
-        //         console.log('error submit!!');
-        //         return false;
-        //         }
-        //     });
-        // },
+                }
+            });
+        },
+        resetForm(formName) {
+            this.$refs[formName].resetFields();
+        },
         close(done){
             this.$confirm('Ви дійсно хочете закрити форму реєстрації?')
                 .then(_ => {

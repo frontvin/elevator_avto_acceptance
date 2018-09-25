@@ -16,7 +16,6 @@ export default {
       NewRegistration,
       RegList
   },
-
   layout: 'main'
 }
 </script>

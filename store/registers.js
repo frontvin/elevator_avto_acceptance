@@ -8,7 +8,6 @@ export const mutations = {
   ADD_REGISTARTION(state, payload) {
     state.list.push(payload)
   },
-
   SET_COUNT(state, count) {
     state.count = count
   },

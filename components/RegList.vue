@@ -11,29 +11,29 @@
             @current-change="handleCurrentChange"
             style="width: 100%">
             <el-table-column
-                property="driverName"
+                prop="driverName"
                 label="Ім'я"
                 width="120">
             </el-table-column>
             <el-table-column
-                property="driverSurname"
+                prop="driverSurname"
                 label="Прізвище"
                 width="120">
             </el-table-column>
             <el-table-column
-                property="carNumber"
+                prop="carNumber"
                 label="Номер автомобіля">
             </el-table-column>
             <el-table-column
-                property="regDate"
+                prop="regDate"
                 label="Дата реєстрації">
             </el-table-column>
             <el-table-column
-                property="cargo"
+                prop="cargo"
                 label="Вантаж">
             </el-table-column>
             <el-table-column
-                property="weight"
+                prop="weight"
                 label="Вага">
             </el-table-column>
             <el-table-column

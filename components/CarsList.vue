@@ -3,28 +3,24 @@
         <h1>Список автомобілів</h1>
         <el-table
             ref="singleTable"
-            :data="tableData"
+            :data="cars"
             stripe
             border
             highlight-current-row
             @current-change="handleCurrentChange"
             style="width: 100%">
             <el-table-column
-                type="index"
-                width="50">
-            </el-table-column>
-            <el-table-column
-                property="carnumber"
+                prop="number"
                 label="Номер"
                 width="240">
             </el-table-column>
             <el-table-column
-                property="carbrand"
+                prop="brand"
                 label="Марка"
                 width="240">
             </el-table-column>
             <el-table-column
-                property="carmodel"
+                prop="model"
                 label="Модель"
                 width="240">
             </el-table-column>
@@ -46,12 +42,18 @@
 
 <script>
 export default {
+    name: 'e-cars-list',
     data(){
         return {
-            tableData: [
-                
-            ],
             currentRow: null
+        }
+    },
+    computed: {
+        cars(){
+            return this.$store.state.cars.list;
+        },
+        counter(){
+            return this.$store.state.cars.count;
         }
     },
     methods: {
