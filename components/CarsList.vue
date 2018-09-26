@@ -31,7 +31,7 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
-                        @click="handleEdit(scope.$index, scope.row)">Переглянути</el-button>
+                        @click="dialogTableVisible = true">Переглянути</el-button>
                     <el-button
                         size="mini"
                         type="danger"
@@ -40,6 +40,16 @@
                 </template>
             </el-table-column>
         </el-table>
+
+        <!-- Dialog window  -->
+        <el-dialog title="Інформація про автомобіль" :visible.sync="dialogTableVisible">
+            <el-table :data="currentCar">
+                <el-table-column prop="brand" label="Марка автомобіля"></el-table-column>
+                <el-table-column prop="model" label="Модель автомобіля"></el-table-column>
+                <el-table-column prop="number" label="Номер автомобіля"></el-table-column>
+                <el-table-column prop="color" label="Колір автомобіля"></el-table-column>
+            </el-table>
+        </el-dialog>
     </el-row>
 </template>
 
@@ -48,11 +58,16 @@ export default {
     name: 'e-cars-list',
     data(){
         return {
-            currentRow: null
+            currentRow: null,
+            dialogTableVisible: false
         }
     },
     computed: {
         cars(){
+            return this.$store.state.cars.list;
+        },
+        currentCar(){
+            // need fix it
             return this.$store.state.cars.list;
         },
         counter(){

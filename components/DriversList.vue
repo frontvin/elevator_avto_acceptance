@@ -31,7 +31,7 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
-                        @click="handleEdit(scope.$index, scope.row)">Переглянути</el-button>
+                        @click="dialogTableVisible = true">Переглянути</el-button>
                     <el-button
                         size="mini"
                         type="danger"
@@ -40,6 +40,15 @@
                 </template>
             </el-table-column>
         </el-table>
+
+        <!-- Dialog window -->
+        <el-dialog title="Інформація про водія" :visible.sync="dialogTableVisible">
+            <el-table :data="currentDriver">
+                <el-table-column prop="name" label="Ім'я"></el-table-column>
+                <el-table-column prop="surname" label="Прізвище"></el-table-column>
+                <el-table-column prop="sertificate" label="Сертифікат"></el-table-column>
+            </el-table>
+        </el-dialog>
     </el-row>
 </template>
 
@@ -49,11 +58,16 @@ export default {
 
     data(){
         return {
-            currentRow: null
+            currentRow: null,
+            dialogTableVisible: false
         }
     },
     computed: {
         drivers(){
+            return this.$store.state.drivers.list;
+        },
+        currentDriver(){
+            // need fix it
             return this.$store.state.drivers.list;
         },
         counter(){

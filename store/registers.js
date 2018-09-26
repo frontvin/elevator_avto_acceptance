@@ -20,5 +20,9 @@ export const actions = {
   addNew({commit, state}, registration) {
     commit('ADD_REGISTARTION', registration)
     commit('SET_COUNT', state.list.length)
+  },
+  removeRowItem({commit, state}, registration){
+    commit()
+    commit('SET_COUNT', state.list.length-1)
   }
 }

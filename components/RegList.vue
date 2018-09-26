@@ -8,7 +8,6 @@
             border
             height="460"
             highlight-current-row
-            @current-change="handleCurrentChange"
             style="width: 100%">
             <el-table-column
                 prop="driverName"
@@ -82,20 +81,16 @@ export default {
             return this.$store.state.registers.list;
         },
         currentRegistration(){
-            // return this.$store.state.registers.list;
+            return this.$store.state.registers.list;
         },
         counter(){
             return this.$store.state.registers.count;
         }
     },
     methods: {
-        setCurrent(row) {
-            this.$refs.singleTable.setCurrentRow(row);
-        },
-        handleCurrentChange(val) {
-            this.currentRow = val;
-        },
-         
+        deleteRow(index, rows) {
+            rows.splice(index, 1);
+        }
     }
 }
 </script>
