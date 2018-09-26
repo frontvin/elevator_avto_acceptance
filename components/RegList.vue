@@ -74,7 +74,6 @@
 export default {
     data(){
         return {
-            currentRow: null,
             dialogTableVisible: false
         }
     },
@@ -83,7 +82,7 @@ export default {
             return this.$store.state.registers.list;
         },
         currentRegistration(){
-            return this.$store.state.registers.list;
+            // return this.$store.state.registers.list;
         },
         counter(){
             return this.$store.state.registers.count;
@@ -95,7 +94,8 @@ export default {
         },
         handleCurrentChange(val) {
             this.currentRow = val;
-        }
+        },
+         
     }
 }
 </script>

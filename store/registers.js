@@ -17,10 +17,7 @@ export const mutations = {
 }
 
 export const actions = {
-  addNew({
-    commit,
-    state
-  }, registration) {
+  addNew({commit, state}, registration) {
     commit('ADD_REGISTARTION', registration)
     commit('SET_COUNT', state.list.length)
   }
