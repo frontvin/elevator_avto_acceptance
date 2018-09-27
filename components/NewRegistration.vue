@@ -138,6 +138,10 @@ export default {
                     number: this.form.carNumber,
                     color: this.form.carColor
                 })
+
+                // this.formVisisble = false;
+                // this.$refs[formName].resetFields();
+ 
             } else {
                 // need to wrire somth else
                 console.log('error submit!!');
