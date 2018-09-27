@@ -138,10 +138,13 @@ export default {
                     number: this.form.carNumber,
                     color: this.form.carColor
                 })
+                
+                Object.assign(this.$data, this.$options.data())
+                //this.$refs[formName].resetFields();
+                
+                // close (hide) dialog window with form
+                this.$store.commit('registers/SET_REGISTRATION_FORM_VISIBLE', false)
 
-                // this.formVisisble = false;
-                // this.$refs[formName].resetFields();
- 
             } else {
                 // need to wrire somth else
                 console.log('error submit!!');

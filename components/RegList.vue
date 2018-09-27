@@ -46,7 +46,7 @@
                         type="danger"
                         icon="el-icon-delete"
                         round
-                        @click.native.prevent="deleteRow(scope.$index, registrations)"></el-button>
+                        @click.native.prevent="deleteRow(scope.$index)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -89,7 +89,7 @@ export default {
     },
     methods: {
         deleteRow(index) {
-            return this.$store.state.registers.list.splice(index, 1);
+            this.$store.dispatch('registers/removeRowItem', index);
         }
     }
 }

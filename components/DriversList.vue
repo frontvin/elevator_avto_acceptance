@@ -36,7 +36,7 @@
                         size="mini"
                         type="danger"
                         icon="el-icon-delete"
-                        @click="handleDelete(scope.$index, scope.row)"></el-button>
+                        ></el-button>
                 </template>
             </el-table-column>
         </el-table>

@@ -13,11 +13,7 @@ export const mutations = {
 }
 
 export const actions = {
-  addNew({
-    commit,
-    state
-  }, 
-  driver) {
+  addNew({commit,state}, driver) {
     commit('ADD_DRIVER', driver)
     commit('SET_COUNT', state.list.length)
   }

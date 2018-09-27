@@ -14,8 +14,8 @@ export const mutations = {
   SET_REGISTRATION_FORM_VISIBLE(state, visible) {
     state.newRegistrationFormVisible = visible
   },
-  DELETE_ITEM(state){
-
+  DELETE_ITEM(state, index){
+    state.list.splice(index, 1)
   }
 }
 
@@ -24,8 +24,8 @@ export const actions = {
     commit('ADD_REGISTARTION', registration)
     commit('SET_COUNT', state.list.length)
   },
-  removeRowItem({commit, state}, registration){
-    commit('DELETE_ITEM', )
-    commit('SET_COUNT', state.list.length-1)
+  removeRowItem({commit, state}, index){
+    commit('DELETE_ITEM', index)
+    commit('SET_COUNT', state.list.length)
   }
 }
