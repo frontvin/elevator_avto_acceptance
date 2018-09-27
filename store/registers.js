@@ -13,6 +13,9 @@ export const mutations = {
   },
   SET_REGISTRATION_FORM_VISIBLE(state, visible) {
     state.newRegistrationFormVisible = visible
+  },
+  DELETE_ITEM(state){
+
   }
 }
 
@@ -22,7 +25,7 @@ export const actions = {
     commit('SET_COUNT', state.list.length)
   },
   removeRowItem({commit, state}, registration){
-    commit()
+    commit('DELETE_ITEM', )
     commit('SET_COUNT', state.list.length-1)
   }
 }

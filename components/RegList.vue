@@ -88,8 +88,8 @@ export default {
         }
     },
     methods: {
-        deleteRow(index, rows) {
-            rows.splice(index, 1);
+        deleteRow(index) {
+            return this.$store.state.registers.list.splice(index, 1);
         }
     }
 }

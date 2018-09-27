@@ -46,7 +46,8 @@
     }
 </script>
 
-<style lang=scss>
+<style lang="scss">
+
 @import '~/assets/normalize.css';
 @import url("//unpkg.com/element-ui@2.4.6/lib/theme-chalk/index.css");
 .el-header{

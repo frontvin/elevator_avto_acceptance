@@ -1,7 +1,7 @@
 <template>
     <div>
         <el-row>
-            <driversList />
+            <DriversList />
         </el-row>
         <newRegistration />
     </div>
