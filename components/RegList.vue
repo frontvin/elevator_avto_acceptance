@@ -40,7 +40,7 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
-                        @click="dialogTableVisible = true">Переглянути</el-button>
+                        @click="dialogTableVisible=true">Переглянути</el-button>
                     <el-button
                         size="mini"
                         type="danger"
@@ -67,7 +67,7 @@
             </el-table>
         </el-dialog> -->
 
-        <ComponentInfo  @click="dialogTableVisible=true"/>
+        <ComponentInfo v-bind="dialogTableVisible"/>
     </el-row>
 </template>
 

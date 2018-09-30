@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="Поточна реєстрація" :visible="false">
+  <el-dialog title="Поточна реєстрація" :visible="dialogTableVisible">
     <el-row>
       <el-col :span="12">
         <div class="grid-content bg-purple">
@@ -38,10 +38,23 @@ export default {
   name: 'item-preview',
   data() {
     return {
-      dialogTableVisible: false
     }
-  }
+  },
+  props: [
+    'dialogTableVisible',
+    'driverName',
+    'driverSurname',
+    'sertificate',
+    'carBrand',
+    'carModel',
+    'carNumber',
+    'carColor',
+    'cargo',
+    'weight',
+    'regDate'
+  ]
 }
+
 </script>
 
 <style lang="scss" scoped>
