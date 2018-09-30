@@ -36,7 +36,7 @@
                         size="mini"
                         type="danger"
                         icon="el-icon-delete"
-                        ></el-button>
+                        @click.native.prevent="deleteRow(scope.$index)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
@@ -75,12 +75,15 @@ export default {
         }
     },
     methods: {
-      setCurrent(row) {
-        this.$refs.singleTable.setCurrentRow(row);
-      },
-      handleCurrentChange(val) {
-        this.currentRow = val;
-      }
+        setCurrent(row) {
+            this.$refs.singleTable.setCurrentRow(row);
+        },
+        handleCurrentChange(val) {
+            this.currentRow = val;
+        },
+        deleteRow(index) {
+            this.$store.dispatch('drivers/removeRowItem', index);
+        }
     }
 }
 </script>

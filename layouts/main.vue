@@ -17,9 +17,9 @@
                 <el-menu-item index="3">
                     <nuxt-link class="navLink" to="/cars">Автомобілі</nuxt-link>
                 </el-menu-item>
-                <el-menu-item index="4">
-                    <span class="navLink" @click='showRegistrationForm'><i class='el-icon-plus'></i> Нова реєстрація</span>
-                </el-menu-item>
+                <div>
+                    <span class="newRegLink" @click='showRegistrationForm'><i class='el-icon-plus'></i> Нова реєстрація</span>
+                </div>
                 <el-menu-item index="5">
                     <nuxt-link class="navLink" to="/">Вийти</nuxt-link>
                 </el-menu-item>
@@ -63,10 +63,20 @@
         &:last-child{
             margin-left: auto;
         }
-        .navLink{
-            font-size: 1.2em;
-            text-decoration: none;
-            padding: 20px 20px;
+    }
+    .navLink{
+        font-size: 1.2em;
+        text-decoration: none;
+        padding: 20px 20px;
+    }
+    .newRegLink{
+        color: rgb(255, 255, 255);
+        width: 100%;
+        height: 60px;
+        &:hover{
+            cursor: pointer;
+            border-bottom-color: transparent; 
+            background-color: rgb(67, 74, 80);
         }
     }
 }

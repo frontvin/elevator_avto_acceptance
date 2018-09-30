@@ -75,12 +75,15 @@ export default {
         }
     },
     methods: {
-      setCurrent(row) {
-        this.$refs.singleTable.setCurrentRow(row);
-      },
-      handleCurrentChange(val) {
-        this.currentRow = val;
-      }
+        setCurrent(row) {
+            this.$refs.singleTable.setCurrentRow(row);
+        },
+        handleCurrentChange(val) {
+            this.currentRow = val;
+        },
+        deleteRow(index) {
+            this.$store.dispatch('cars/removeRowItem', index);
+        }
     }
 }
 </script>

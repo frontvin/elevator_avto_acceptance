@@ -1,9 +1,6 @@
 <template>
     <el-row>
-        
         <!-- Form -->
-        <!-- <el-button type="primary" plain @click="dialogFormVisible = true">Нова реєстрація</el-button> -->
-
         <el-dialog title="Нова реєстарція" :visible="formVisisble">
         
             <el-form :model="form" :rules="rules" ref="form" :before-close="close">

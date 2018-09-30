@@ -52,7 +52,7 @@
         </el-table>
 
         <!-- Dialog window  -->
-        <el-dialog title="Поточна реєстрація" :visible.sync="dialogTableVisible">
+        <!-- <el-dialog title="Поточна реєстрація" :visible.sync="dialogTableVisible">
             <el-table :data="currentRegistration">
                 <el-table-column prop="driverName" label="Ім'я"></el-table-column>
                 <el-table-column prop="driverSurname" label="Прізвище"></el-table-column>
@@ -65,12 +65,20 @@
                 <el-table-column prop="cargo" label="Вантаж"></el-table-column>
                 <el-table-column prop="weight" label="Вага"></el-table-column>
             </el-table>
-        </el-dialog>
+        </el-dialog> -->
+
+        <ComponentInfo  @click="dialogTableVisible=true"/>
     </el-row>
 </template>
 
 <script>
+
+import ComponentInfo from '~/components/ComponentInfo.vue'
+
 export default {
+    components: {
+        ComponentInfo
+    },
     data(){
         return {
             dialogTableVisible: false
