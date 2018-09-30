@@ -1,5 +1,5 @@
 <template>
-  <el-dialog title="Поточна реєстрація" :visible="dialogTableVisible">
+  <el-dialog title="Поточна реєстрація" :visible="dialogTable">
     <el-row>
       <el-col :span="12">
         <div class="grid-content bg-purple">
@@ -41,7 +41,6 @@ export default {
     }
   },
   props: [
-    'dialogTableVisible',
     'driverName',
     'driverSurname',
     'sertificate',
@@ -52,7 +51,12 @@ export default {
     'cargo',
     'weight',
     'regDate'
-  ]
+  ],
+  computed: {
+    showDialog(){
+            return this.$store.state.registers.dialogTable
+        }
+  }
 }
 
 </script>

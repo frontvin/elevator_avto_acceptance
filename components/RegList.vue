@@ -40,7 +40,7 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
-                        @click="dialogTableVisible=true">Переглянути</el-button>
+                        @click="showDialogWindow">Переглянути</el-button>
                     <el-button
                         size="mini"
                         type="danger"
@@ -52,36 +52,56 @@
         </el-table>
 
         <!-- Dialog window  -->
-        <!-- <el-dialog title="Поточна реєстрація" :visible.sync="dialogTableVisible">
-            <el-table :data="currentRegistration">
-                <el-table-column prop="driverName" label="Ім'я"></el-table-column>
-                <el-table-column prop="driverSurname" label="Прізвище"></el-table-column>
-                <el-table-column prop="sertificate" label="Сертифікат"></el-table-column>
-                <el-table-column prop="carBrand" label="Марка автомобіля"></el-table-column>
-                <el-table-column prop="carModel" label="Модель автомобіля"></el-table-column>
-                <el-table-column prop="carNumber" label="Номер автомобіля"></el-table-column>
-                <el-table-column prop="carColor" label="Колір автомобіля"></el-table-column>
-                <el-table-column prop="regDate" label="Дата реєстрації"></el-table-column>
-                <el-table-column prop="cargo" label="Вантаж"></el-table-column>
-                <el-table-column prop="weight" label="Вага"></el-table-column>
-            </el-table>
-        </el-dialog> -->
 
-        <ComponentInfo v-bind="dialogTableVisible"/>
+        <el-dialog 
+            title="Поточна реєстрація" 
+            :visible="showDialogTable" 
+            class="dialogWindow"
+            :show-close="false">
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
+                        <div><span class="fieldName">Ім'я водія</span></div>
+                        <div><span class="fieldName">Прізвище водія</span></div>
+                        <div><span class="fieldName">Сертифікат</span></div>
+                        <div><span class="fieldName">Марка автомобіля</span></div>
+                        <div><span class="fieldName">Модель автомобіля</span></div>
+                        <div><span class="fieldName">Номер автомобіля</span></div>
+                        <div><span class="fieldName">Колір автомобіля</span></div>
+                        <div><span class="fieldName">Вантаж</span></div>
+                        <div><span class="fieldName">Вага</span></div>
+                        <div><span class="fieldName">Дата реєстрації</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light" :data='registrations'>
+                    <div><span></span></div>
+                    <div><span></span></div>
+                    <div><span>{{sertificate}}</span></div>
+                    <div><span>{{carBrand}}</span></div>
+                    <div><span>{{carModel}}</span></div>
+                    <div><span>{{carNumber}}</span></div>
+                    <div><span>{{carColor}}</span></div>
+                    <div><span>{{cargo}}</span></div>
+                    <div><span>{{weight}}</span></div>
+                    <div><span>{{regDate}}</span></div>
+                    </div>
+                </el-col>
+            </el-row>
+            <el-row>
+                <el-button @click="closeDialog">Закрити</el-button>
+            </el-row>
+        </el-dialog>  
+    
     </el-row>
 </template>
 
 <script>
 
-import ComponentInfo from '~/components/ComponentInfo.vue'
-
 export default {
-    components: {
-        ComponentInfo
-    },
-    data(){
+data(){
         return {
-            dialogTableVisible: false
+            
         }
     },
     computed: {
@@ -93,12 +113,47 @@ export default {
         },
         counter(){
             return this.$store.state.registers.count;
+        },
+        showDialogTable(){
+            return this.$store.state.registers.dialogTable
         }
     },
     methods: {
         deleteRow(index) {
             this.$store.dispatch('registers/removeRowItem', index);
+        },
+        showDialogWindow(){
+            this.$store.commit('registers/SHOW_DIALOG', true)
+        },
+        closeDialog(){
+            this.$store.commit('registers/SHOW_DIALOG', false)
         }
     }
+
 }
 </script>
+
+<style lang="scss" scoped>
+    .fieldName {
+        font-size: 16px;
+    }
+    .el-row {
+        margin-bottom: 20px;
+        &:last-child {
+        margin-bottom: 0;
+        }
+    }
+    .el-col {
+        border-radius: 4px;
+    }
+    .bg-purple {
+        background: #d3dce6;
+    }
+    .bg-purple-light {
+        background: #e5e9f2;
+    }
+    .grid-content {
+        border-radius: 4px;
+        min-height: 36px;
+    }
+</style>

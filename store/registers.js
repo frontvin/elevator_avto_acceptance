@@ -1,7 +1,8 @@
 export const state = () => ({
   list: [],
   count: 0,
-  newRegistrationFormVisible: false
+  newRegistrationFormVisible: false,
+  dialogTable: false
 })
 
 export const mutations = {
@@ -13,6 +14,9 @@ export const mutations = {
   },
   SET_REGISTRATION_FORM_VISIBLE(state, visible) {
     state.newRegistrationFormVisible = visible
+  },
+  SHOW_DIALOG(state, changeView){
+    state.dialogTable = changeView
   },
   DELETE_ITEM(state, index){
     state.list.splice(index, 1)
