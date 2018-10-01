@@ -39,19 +39,19 @@
         <!-- Dialog window -->
         <el-dialog 
             v-if="currentItem"
-            title="Поточна реєстрація"
+            title="Інформація про вибраного водія"
             :visible="!!currentItem"
             class="dialogWindow"
             :show-close="false">
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Ім'я водія</span></div>
+                        <span class="fieldName">Ім'я водія</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{ currentItem.name }}</span></div>
+                        <span class="fieldValue">{{ currentItem.name }}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -59,12 +59,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Прізвище водія</span></div>
+                        <span class="fieldName">Прізвище водія</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.surname}}</span></div>
+                        <span class="fieldValue">{{currentItem.surname}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -72,12 +72,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Сертифікат</span></div>
+                        <span class="fieldName">Сертифікат</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.sertificate}}</span></div>
+                        <span class="fieldValue">{{currentItem.sertificate}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -86,14 +86,12 @@
                 <el-button @click="closeDialog">Закрити</el-button>
             </el-row>
         </el-dialog>  
-
     </el-row>
 </template>
 
 <script>
 export default {
     name: 'e-drivers-list',
-
     data(){
         return {
             currentRow: null,
@@ -131,15 +129,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-    .fieldName {
+    .fieldName, .fieldValue {
         font-size: 16px;
         text-align: left;
-        margin: 0 auto;
+        margin-left: 10px;
     }
     .el-row {
-        margin-bottom: 20px;
+        margin-bottom: 2px;
         &:last-child {
-        margin-bottom: 0;
+            margin-top: 10px;
         }
     }
     .el-col {
@@ -152,6 +150,8 @@ export default {
         background: #e5e9f2;
     }
     .grid-content {
+        display: flex;
+        align-items: center;
         border-radius: 4px;
         min-height: 36px;
     }

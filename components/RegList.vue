@@ -62,12 +62,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Ім'я водія</span></div>
+                        <span class="fieldName">Ім'я водія</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{ currentItem.driverName }}</span></div>
+                        <span class="fieldValue">{{ currentItem.driverName }}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -75,12 +75,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Прізвище водія</span></div>
+                        <span class="fieldName">Прізвище водія</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.driverSurname}}</span></div>
+                        <span class="fieldValue">{{currentItem.driverSurname}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -88,12 +88,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Сертифікат</span></div>
+                        <span class="fieldName">Сертифікат</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.sertificate}}</span></div>
+                        <span class="fieldValue">{{currentItem.sertificate}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -101,12 +101,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Марка автомобіля</span></div>
+                        <span class="fieldName">Марка автомобіля</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.sertificate}}</span></div>
+                        <span class="fieldValue">{{currentItem.sertificate}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -114,12 +114,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Модель автомобіля</span></div>
+                        <span class="fieldName">Модель автомобіля</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.carBrand}}</span></div>
+                        <span class="fieldValue">{{currentItem.carBrand}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -127,12 +127,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Номер автомобіля</span></div>
+                        <span class="fieldName">Номер автомобіля</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.carNumber}}</span></div>
+                        <span class="fieldValue">{{currentItem.carNumber}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -140,12 +140,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Колір автомобіля</span></div>
+                        <span class="fieldName">Колір автомобіля</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.carColor}}</span></div>
+                        <span class="fieldValue">{{currentItem.carColor}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -153,12 +153,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Вантаж</span></div>
+                        <span class="fieldName">Вантаж</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.cargo}}</span></div>
+                        <span class="fieldValue">{{currentItem.cargo}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -166,12 +166,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Вага</span></div>
+                        <span class="fieldName">Вага</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.weight}}</span></div>
+                        <span class="fieldValue">{{currentItem.weight}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -179,12 +179,12 @@
             <el-row>
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
-                        <div><span class="fieldName">Дата реєстрації</span></div>
+                        <span class="fieldName">Дата реєстрації</span>
                     </div>
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{currentItem.regDate}}</span></div>
+                        <span class="fieldValue">{{currentItem.regDate}}</span>
                     </div>
                 </el-col>
             </el-row>
@@ -232,15 +232,15 @@ data(){
 </script>
 
 <style lang="scss" scoped>
-    .fieldName {
+    .fieldName, .fieldValue {
         font-size: 16px;
         text-align: left;
-        margin: 0 auto;
+        margin-left: 10px;
     }
     .el-row {
-        margin-bottom: 20px;
+        margin-bottom: 2px;
         &:last-child {
-        margin-bottom: 0;
+            margin-top: 10px;
         }
     }
     .el-col {
@@ -253,6 +253,8 @@ data(){
         background: #e5e9f2;
     }
     .grid-content {
+        display: flex;
+        align-items: center;
         border-radius: 4px;
         min-height: 36px;
     }
