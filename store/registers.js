@@ -23,7 +23,11 @@ export const mutations = {
     state.list.splice(index, 1)
   },
   CURRENT_ITEM(state, index){
-    state.currentItem = state.list[index]
+      if(index >= 0) {
+        state.currentItem = state.list[index]
+    } else {
+        state.currentItem = null
+    }
   }
 }
 

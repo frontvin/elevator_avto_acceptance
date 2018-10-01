@@ -40,7 +40,7 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
-                        @click="showDialogWindow">Переглянути</el-button>
+                        @click="showDialogWindow(scope.$index)">Переглянути</el-button>
                     <el-button
                         size="mini"
                         type="danger"
@@ -54,8 +54,9 @@
         <!-- Dialog window  -->
 
         <el-dialog 
-            title="Поточна реєстрація" 
-            :visible="showDialogTable" 
+            v-if="currentItem"
+            title="Поточна реєстрація"
+            :visible="!!currentItem"
             class="dialogWindow"
             :show-close="false">
             <el-row>
@@ -66,7 +67,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span>{{ currentItem.driverName}}</span></div>
+                        <div><span>{{ currentItem.driverName }}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -79,7 +80,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.driverSurname}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -92,7 +93,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.sertificate}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -105,7 +106,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.sertificate}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -118,7 +119,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.carBrand}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -131,7 +132,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.carNumber}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -144,7 +145,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.carColor}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -157,7 +158,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.cargo}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -170,7 +171,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.weight}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -183,7 +184,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{currentItem.regDate}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -198,6 +199,8 @@
 
 <script>
 
+import { mapGetters } from 'vuex'
+
 export default {
 data(){
         return {
@@ -211,27 +214,20 @@ data(){
         counter(){
             return this.$store.state.registers.count;
         },
-        showDialogTable(){
-            return this.$store.state.registers.dialogTable
-        },
         currentItem() {
-            return this.$store.state.registrations.currentItem
+            return this.$store.state.registers.currentItem;
         }
     },
     methods: {
         deleteRow(index) {
             this.$store.dispatch('registers/removeRowItem', index);
         },
-        showDialogWindow(){
-            this.$store.commit('registers/SHOW_DIALOG', true);
+        showDialogWindow(index){
             this.$store.commit('registers/CURRENT_ITEM', index)
         },
         closeDialog(){
-            this.$store.commit('registers/SHOW_DIALOG', false)
-        },
-
-        //neen fix it
-        
+            this.$store.commit('registers/CURRENT_ITEM', null)
+        }   
     }
 
 }
