@@ -227,16 +227,8 @@ data(){
         },
 
         //neen fix it
-        currentRegistration(){
-            this.$store.dispatch('registers/CURRENT_ITEM', {
-                name: this.list.driverName, 
-                surname: this.form.driverSurname, 
-                sertificate: this.form.sertificate,
-                brand: this.form.carBrand,
-                model: this.form.carModel,
-                number: this.form.carNumber,
-                color: this.form.carColor
-            })
+        currentRegistration(index){
+            this.$store.dispatch('registers/CURRENT_ITEM', index)
         },
     }
 

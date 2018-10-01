@@ -2,7 +2,8 @@ export const state = () => ({
   list: [],
   count: 0,
   newRegistrationFormVisible: false,
-  dialogTable: false
+  dialogTable: false,
+  currentItem: null
 })
 
 export const mutations = {
@@ -22,7 +23,7 @@ export const mutations = {
     state.list.splice(index, 1)
   },
   CURRENT_ITEM(state, index){
-    state.list[index]
+    state.currentItem = state.list[index]
   }
 }
 
@@ -34,8 +35,5 @@ export const actions = {
   removeRowItem({commit, state}, index){
     commit('DELETE_ITEM', index)
     commit('SET_COUNT', state.list.length)
-  },
-  showCurrent({commit, state}, index){
-    commit('CURRENT_ITEM', index)
   }
 }
