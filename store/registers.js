@@ -20,6 +20,9 @@ export const mutations = {
   },
   DELETE_ITEM(state, index){
     state.list.splice(index, 1)
+  },
+  CURRENT_ITEM(state, index){
+    state.list[index]
   }
 }
 
@@ -31,5 +34,8 @@ export const actions = {
   removeRowItem({commit, state}, index){
     commit('DELETE_ITEM', index)
     commit('SET_COUNT', state.list.length)
+  },
+  showCurrent({commit, state}, index){
+    commit('CURRENT_ITEM', index)
   }
 }

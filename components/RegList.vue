@@ -62,33 +62,133 @@
                 <el-col :span="12">
                     <div class="grid-content bg-purple">
                         <div><span class="fieldName">Ім'я водія</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+            
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Прізвище водія</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Сертифікат</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Марка автомобіля</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+            
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Модель автомобіля</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Номер автомобіля</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Колір автомобіля</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Вантаж</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Вага</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
                         <div><span class="fieldName">Дата реєстрації</span></div>
                     </div>
                 </el-col>
                 <el-col :span="12">
-                    <div class="grid-content bg-purple-light" :data='registrations'>
-                    <div><span></span></div>
-                    <div><span></span></div>
-                    <div><span>{{sertificate}}</span></div>
-                    <div><span>{{carBrand}}</span></div>
-                    <div><span>{{carModel}}</span></div>
-                    <div><span>{{carNumber}}</span></div>
-                    <div><span>{{carColor}}</span></div>
-                    <div><span>{{cargo}}</span></div>
-                    <div><span>{{weight}}</span></div>
-                    <div><span>{{regDate}}</span></div>
+                    <div class="grid-content bg-purple-light">
+                        <div><span></span></div>
                     </div>
                 </el-col>
             </el-row>
-            <el-row>
+                
+            <el-row class="closeDialogWrapper">
                 <el-button @click="closeDialog">Закрити</el-button>
             </el-row>
         </el-dialog>  
@@ -108,9 +208,6 @@ data(){
         registrations(){
             return this.$store.state.registers.list;
         },
-        currentRegistration(){
-            return this.$store.state.registers.list;
-        },
         counter(){
             return this.$store.state.registers.count;
         },
@@ -127,7 +224,20 @@ data(){
         },
         closeDialog(){
             this.$store.commit('registers/SHOW_DIALOG', false)
-        }
+        },
+
+        //neen fix it
+        currentRegistration(){
+            this.$store.dispatch('registers/CURRENT_ITEM', {
+                name: this.list.driverName, 
+                surname: this.form.driverSurname, 
+                sertificate: this.form.sertificate,
+                brand: this.form.carBrand,
+                model: this.form.carModel,
+                number: this.form.carNumber,
+                color: this.form.carColor
+            })
+        },
     }
 
 }
@@ -136,6 +246,8 @@ data(){
 <style lang="scss" scoped>
     .fieldName {
         font-size: 16px;
+        text-align: left;
+        margin: 0 auto;
     }
     .el-row {
         margin-bottom: 20px;
@@ -155,5 +267,8 @@ data(){
     .grid-content {
         border-radius: 4px;
         min-height: 36px;
+    }
+    .closeDialogWrapper{
+        text-align: center;
     }
 </style>
