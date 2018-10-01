@@ -31,24 +31,78 @@
                 <template slot-scope="scope">
                     <el-button
                         size="mini"
-                        @click="dialogTableVisible = true">Переглянути</el-button>
+                        @click="showDialogWindow(scope.$index)">Переглянути</el-button>
                     <el-button
                         size="mini"
                         type="danger"
                         icon="el-icon-delete"
-                        ></el-button>
+                        @click.native.prevent="deleteRow(scope.$index)"></el-button>
                 </template>
             </el-table-column>
         </el-table>
 
         <!-- Dialog window  -->
-        <el-dialog title="Інформація про автомобіль" :visible.sync="dialogTableVisible">
-            <el-table :data="currentCar">
-                <el-table-column prop="brand" label="Марка автомобіля"></el-table-column>
-                <el-table-column prop="model" label="Модель автомобіля"></el-table-column>
-                <el-table-column prop="number" label="Номер автомобіля"></el-table-column>
-                <el-table-column prop="color" label="Колір автомобіля"></el-table-column>
-            </el-table>
+        <el-dialog 
+            v-if="currentItem"
+            title="Поточна реєстрація"
+            :visible="!!currentItem"
+            class="dialogWindow"
+            :show-close="false">
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
+                        <div><span class="fieldName">Марка автомобіля</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span>{{currentItem.brand}}</span></div>
+                    </div>
+                </el-col>
+            </el-row>
+            
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
+                        <div><span class="fieldName">Модель автомобіля</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span>{{currentItem.model}}</span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
+                        <div><span class="fieldName">Номер автомобіля</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span>{{currentItem.number}}</span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple">
+                        <div><span class="fieldName">Колір автомобіля</span></div>
+                    </div>
+                </el-col>
+                <el-col :span="12">
+                    <div class="grid-content bg-purple-light">
+                        <div><span>{{currentItem.color}}</span></div>
+                    </div>
+                </el-col>
+            </el-row>
+
+            <el-row class="closeDialogWrapper">
+                <el-button @click="closeDialog">Закрити</el-button>
+            </el-row>
         </el-dialog>
     </el-row>
 </template>
@@ -59,19 +113,17 @@ export default {
     data(){
         return {
             currentRow: null,
-            dialogTableVisible: false
         }
     },
     computed: {
         cars(){
             return this.$store.state.cars.list;
         },
-        currentCar(){
-            // need fix it
-            return this.$store.state.cars.list;
-        },
         counter(){
             return this.$store.state.cars.count;
+        },
+        currentItem() {
+            return this.$store.state.cars.currentItem;
         }
     },
     methods: {
@@ -83,7 +135,43 @@ export default {
         },
         deleteRow(index) {
             this.$store.dispatch('cars/removeRowItem', index);
-        }
+        },
+        showDialogWindow(index){
+            this.$store.commit('cars/CURRENT_CAR_ITEM', index)
+        },
+        closeDialog(){
+            this.$store.commit('cars/CURRENT_CAR_ITEM', null)
+        }   
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    .fieldName {
+        font-size: 16px;
+        text-align: left;
+        margin: 0 auto;
+    }
+    .el-row {
+        margin-bottom: 20px;
+        &:last-child {
+        margin-bottom: 0;
+        }
+    }
+    .el-col {
+        border-radius: 4px;
+    }
+    .bg-purple {
+        background: #d3dce6;
+    }
+    .bg-purple-light {
+        background: #e5e9f2;
+    }
+    .grid-content {
+        border-radius: 4px;
+        min-height: 36px;
+    }
+    .closeDialogWrapper{
+        text-align: center;
+    }
+</style>

@@ -16,5 +16,4 @@ export default {
 
 <style lang="scss">
   @import url("//unpkg.com/element-ui@2.4.6/lib/theme-chalk/index.css");
-  
 </style>
