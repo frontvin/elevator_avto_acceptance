@@ -29,8 +29,16 @@ export const mutations = {
 
 export const actions = {
   addNew({commit,state}, driver) {
-    commit('ADD_DRIVER', driver)
-    commit('SET_COUNT', state.list.length)
+
+    let driversArr = values.map(function(item){ 
+      return item.sertificate });
+    let isDuplicate = driversArr.some(function(item, checkSertificate){ 
+        return driversArr.indexOf(item) != checkSertificate 
+    });
+    if (isDuplicate==false){
+      commit('ADD_DRIVER', driver)
+      commit('SET_COUNT', state.list.length)
+    }
   },
   removeRowItem({commit, state}, index){
     commit('DELETE_ITEM', index)
