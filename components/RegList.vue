@@ -66,7 +66,7 @@
                 </el-col>
                 <el-col :span="12">
                     <div class="grid-content bg-purple-light">
-                        <div><span></span></div>
+                        <div><span>{{ currentItem.driverName}}</span></div>
                     </div>
                 </el-col>
             </el-row>
@@ -213,6 +213,9 @@ data(){
         },
         showDialogTable(){
             return this.$store.state.registers.dialogTable
+        },
+        currentItem() {
+            return this.$store.state.registrations.currentItem
         }
     },
     methods: {
@@ -220,16 +223,15 @@ data(){
             this.$store.dispatch('registers/removeRowItem', index);
         },
         showDialogWindow(){
-            this.$store.commit('registers/SHOW_DIALOG', true)
+            this.$store.commit('registers/SHOW_DIALOG', true);
+            this.$store.commit('registers/CURRENT_ITEM', index)
         },
         closeDialog(){
             this.$store.commit('registers/SHOW_DIALOG', false)
         },
 
         //neen fix it
-        currentRegistration(index){
-            this.$store.dispatch('registers/CURRENT_ITEM', index)
-        },
+        
     }
 
 }
