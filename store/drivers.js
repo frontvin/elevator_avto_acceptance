@@ -30,7 +30,7 @@ export const mutations = {
 export const actions = {
   addNew({commit,state}, driver) {
 
-    let driversArr = values.map(function(item){ 
+    let driversArr = state.list.map(function(item){ 
       return item.sertificate });
     let isDuplicate = driversArr.some(function(item, checkSertificate){ 
         return driversArr.indexOf(item) != checkSertificate 
