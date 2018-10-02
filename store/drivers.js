@@ -7,7 +7,12 @@ export const state = () => ({
 
 export const mutations = { 
   ADD_DRIVER(state, payload){
-    state.list.push(payload)
+    let driversArr = state.list.map(function(item){ 
+      return item.sertificate });
+    let isDuplicate = (new Set(driversArr)).size !== driversArr.length
+    if (isDuplicate==false){
+      state.list.push(payload)
+    }
   },
   SET_COUNT(state, count){
     state.count = count
@@ -29,16 +34,8 @@ export const mutations = {
 
 export const actions = {
   addNew({commit,state}, driver) {
-
-    let driversArr = state.list.map(function(item){ 
-      return item.sertificate });
-    let isDuplicate = driversArr.some(function(item, checkSertificate){ 
-        return driversArr.indexOf(item) != checkSertificate 
-    });
-    if (isDuplicate==false){
-      commit('ADD_DRIVER', driver)
-      commit('SET_COUNT', state.list.length)
-    }
+    commit('ADD_DRIVER', driver)
+    commit('SET_COUNT', state.list.length)
   },
   removeRowItem({commit, state}, index){
     commit('DELETE_ITEM', index)

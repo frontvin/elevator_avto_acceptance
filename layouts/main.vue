@@ -73,6 +73,7 @@
         color: rgb(255, 255, 255);
         width: 100%;
         height: 60px;
+        padding: 20px;
         &:hover{
             cursor: pointer;
             border-bottom-color: transparent; 
